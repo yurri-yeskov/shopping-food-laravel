@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OTP Verification</title>
+</head>
+<body>
+	<h4>Please wait...</h4>
+	<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		
+		function getUrlVars()
+		{
+			console.log(window.location.href);
+		    var vars = [], hash;
+		    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+		    for(var i = 0; i < hashes.length; i++)
+		    {
+		        hash = hashes[i].split('=');
+		        vars.push(hash[0]);
+		        vars[hash[0]] = hash[1];
+		    }
+		    return vars;
+		}
+		$(document).ready(function() {
+/*
+			console.log("document");
+			console.log(getUrlVars());
+			console.log(getUrlVars()["email"]);
+			console.log(getUrlVars()["password"]);
+*/
+			window.location.href = "firebase_call.html?email="+getUrlVars()["email"]+"&password="+getUrlVars()["password"];
+		});
+
+		//
+	</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OTP Verification</title>
+  <style type="text/css">
+  	* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+#user-info {
+  border: 1px solid #CCC;
+  clear: both;
+  margin: 0 auto 20px;
+  max-width: 400px;
+  padding: 10px;
+  text-align: left;
+}
+
+#photo-container {
+  background-color: #e96125;
+  border: 1px solid #CCC;
+  float: left;
+  height: 80px;
+  margin-right: 10px;
+  width: 80px;
+}
+
+#photo {
+  height: 80px;
+  margin: 0;
+  width: 80px;
+}
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    max-width: 360px;
+    margin: 0 auto;
+    margin-top: 12px;
+}
+.alert p{
+	margin: 0px;
+}
+@media (max-width: 300px) {
+  #photo-container,
+  #photo {
+    height: 40px;
+    width: 40px;
+  }
+}
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyDLsAg7XdDNUmgfiawJW8rttpuTfAyUaJ4",
+    authDomain: "gorceryapp-34204.firebaseapp.com",
+    databaseURL: "https://gorceryapp-34204.firebaseio.com",
+    projectId: "gorceryapp-34204",
+    storageBucket: "gorceryapp-34204.appspot.com",
+    messagingSenderId: "1061215918277",
+	};
+    firebase.initializeApp(config);
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
+<!--   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" /> -->
+  <link type="text/css" rel="stylesheet" href="firebaseui.css" />
+<!--   <link href="style.css" rel="stylesheet" type="text/css" media="screen" /> -->
+  
+</head>
+<body>
+	 <div id="container">
+      <div id="loading">Loading...</div>
+      <div id="loaded" class="hidden">
+        <div id="main">
+            <p>Please drop the 0 while entering your number.. Ex: 404123456</p>
+          <div id="user-signed-in" class="hidden">
+            <div id="user-info">
+              <div id="photo-container">
+                <img id="photo">
+              </div>
+              <div id="name"></div>
+              <div id="email"></div>
+              <div id="phone"></div>
+              <div class="clearfix"></div>
+            </div>
+            <p>
+              <button id="sign-out">Sign Out</button>
+              <button id="delete-account">Delete account</button>
+            </p>
+          </div>
+          <div id="user-signed-out" class="hidden">
+            <!-- <h4>You are signed out.</h4> -->
+            <div id="firebaseui-spa">
+              <!-- <h3>Single Page App mode:</h3> -->
+              <div id="firebaseui-container"></div>
+            </div>
+          </div>
+          	<div id="message_div" class="alert alert-danger hidden" role="alert">
+			  <p id="message"></p>
+			</div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
